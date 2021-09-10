@@ -14,7 +14,7 @@ import spock.lang.Specification
 class GradleSpringBannerPluginFunctionalTest extends Specification {
 
     @Shared
-    def projectName = 'Banner-Test'
+    def projectName = 'Banner'
 
     @Shared
     def projectDir = new File("build/functionalTest")
