@@ -12,6 +12,8 @@ plugins {
 
     // Apply the Groovy plugin to add support for Groovy
     id 'groovy'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.14.0'
 }
 
 repositories {
@@ -20,6 +22,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.github.dtmo.jfiglet:jfiglet:1.0.1'
     // Use the awesome Spock testing and specification framework
     testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
 }
@@ -27,9 +30,9 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     plugins {
-        greeting {
-            id = 'io.github.shinusuresh.gradle.spring.banner'
-            implementationClass = 'io.github.shinusuresh.gradle.spring.banner.GradleSpringBannerPlugin'
+         banner {
+            id = 'io.github.ss.gradle.spring.banner'
+            implementationClass = 'io.github.ss.gradle.spring.banner.GradleSpringBannerPlugin'
         }
     }
 }
@@ -58,4 +61,10 @@ tasks.named('check') {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+pluginBundle {
+    website = '<substitute your project website>'
+    vcsUrl = '<uri to project source repository>'
+    tags = ['tags', 'for', 'your', 'plugins']
 }
